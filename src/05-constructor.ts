@@ -1,14 +1,11 @@
 export class MyDate{
 
-  private year:number;
-  private month:number;
-  private day:number;
 
-  constructor(year:number,month:number,day:number){
-    this.year = year,
-    this.month = month,
-    this.day = day
-  }
+
+  constructor(public year:number = 10,
+    public month:number= 11,
+    private day:number=12)
+    {}
 
   printFormat():string {
     const day = this.addPadding(this.day);
@@ -37,11 +34,11 @@ export class MyDate{
   }
 
 
-  getDay():number{
-    return this.day
-  };
+
 
 
 }
-const myDate = new MyDate(1993,7,10)
+const myDate = new MyDate(1993,7,10);
+
 console.log(myDate.printFormat());
+

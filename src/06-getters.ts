@@ -1,14 +1,11 @@
 export class MyDate{
 
-  private year:number;
-  private month:number;
-  private day:number;
 
-  constructor(year:number,month:number,day:number){
-    this.year = year,
-    this.month = month,
-    this.day = day
-  }
+
+  constructor(public year:number = 10,
+    public month:number= 11,
+    private _day:number=12)
+    {}
 
   printFormat():string {
     const day = this.addPadding(this.day);
@@ -25,7 +22,7 @@ export class MyDate{
   }
   add(amount:number, type: 'days'| 'months' | 'years'){
     if(type === 'days'){
-      this.day+= amount;
+      this._day+= amount;
     }
     if(type === 'months'){
       this.month+= amount;
@@ -37,11 +34,20 @@ export class MyDate{
   }
 
 
-  getDay():number{
-    return this.day
+  get day():number{
+    return this._day
   };
+
+  get isLeasYear():boolean {
+    if(this.year % 400 === 0 ) return true;
+    if(this.year % 100 === 0) return true;
+    return this.year % 4 === 0
+  }
 
 
 }
-const myDate = new MyDate(1993,7,10)
+const myDate = new MyDate(1993,7,10);
+
 console.log(myDate.printFormat());
+
+console.log(myDate.day);
