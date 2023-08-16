@@ -1,8 +1,8 @@
 export class MyDate{
 
-  year:number;
-  month:number;
-  day:number;
+  public year:number;
+  public month:number;
+  public day:number;
 
   constructor(year:number,month:number,day:number){
     this.year = year,
