@@ -15,13 +15,13 @@ export class ProductMemoryService implements ProductService {
   create(data: CreateProductDto): Product {
     const newProduct:Product = {
       ...data,
-      id: faker.datatype.number(),
+      id: faker.animal.bear.length,
       title:faker.commerce.productName(),
       description:faker.commerce.productDescription(),
       category: {
         id: data.categoryId,
         name: faker.commerce.department(),
-        image: faker.image.imageUrl(),
+        image: faker.image.url(),
       }
     }
     return this.add(newProduct);
